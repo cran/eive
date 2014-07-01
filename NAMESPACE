@@ -1,1 +1,3 @@
+useDynLib(eive)
 exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)

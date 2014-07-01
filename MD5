@@ -1,10 +1,11 @@
-afbb9ed4a69a8edd3e2a40400f814dff *DESCRIPTION
-8b54e5a89fbda3af5e077053d40bec76 *NAMESPACE
-ca9410f0d7dc9e2fcfed21926b40e1c6 *R/cga.R
-adfe495b4fdc55524ed21a9a094c41fe *R/eive.R
+864f81b6f534cac086f7c77876e971f7 *DESCRIPTION
+e490a1a212662fa16fddb72000d22889 *NAMESPACE
+9884c51e8e5929798b6f5cfc3fbb216d *R/RcppExports.R
+55dfa4bb353a09fed4feed326eb125d6 *R/eive.R
 8373adfdc1d921a3a6bd88fdb87a9919 *man/cga.Rd
 69dcdfb0ac0c45a4b62b14fcd29028bf *man/cga_generate_chromosome.Rd
-e9d5598151bdf8c540d04f4e4aebc456 *man/eive-package.Rd
+781a23d8ad3b2171926d4718e9bec90f *man/eive-package.Rd
 d0353d85570ce1a1b444591eee50f53a *man/eive.cga.Rd
-11c7e5df6e3ea40c425fef6ac56ecf14 *man/f.Rd
 e1893f7441db07a7929ff798ccee3123 *man/generate.eive.data.Rd
+bbd204dd5f3bcbba7cfef2287a044700 *src/RcppExports.cpp
+5de9335b549a8c0c51c648819b1ae02e *src/ccga.cpp

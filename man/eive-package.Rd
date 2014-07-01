@@ -12,8 +12,8 @@ This package includes functions for compact genetic algorithms and errors-in-var
 \tabular{ll}{
 Package: \tab eive\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2012-11-02\cr
+Version: \tab 2.0\cr
+Date: \tab 2014-07-01\cr
 License: \tab GPL\cr
 }
 }

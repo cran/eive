@@ -1,5 +1,4 @@
 require("compiler")
-#source("cga.R")
 
 
 # Generates one or two exploratory variables linear model
@@ -26,8 +25,6 @@ generate.eive.data <- function (n, e.sd, delta.sd, seed = 12345, useotherx = FAL
 
 
 
-
-
 eive.cga <- function(dirtyx, otherx=NULL, y, numdummies=10, popsize=20){
 
 	ols.dirty <- NULL
@@ -36,21 +33,20 @@ eive.cga <- function(dirtyx, otherx=NULL, y, numdummies=10, popsize=20){
 	n <- length(y)
 	f<-function(d){
 		ols <- NULL
-        	m<-matrix(d,nrow=n)
-	        ols.proxy <- lm(dirtyx ~ m)
-	        x.proxy <- ols.proxy$fitted.values
-			if(is.null(otherx)){
-	        		ols <- lm(y ~ x.proxy)
-			}else{
-				ols <- lm(y ~ x.proxy + otherx)
-			}
-	        ee<-sum (ols$residuals^2)
-        	return (ee)
+        m<-matrix(d,nrow=n)
+	    ols.proxy <- lm(dirtyx ~ m)
+	    x.proxy <- ols.proxy$fitted.values
+		if(is.null(otherx)){
+	    	ols <- lm(y ~ x.proxy)
+		}else{
+			ols <- lm(y ~ x.proxy + otherx)
+		}
+        return (sum (ols$residuals^2))
 	}
 
-	ga<-cga(evalFunc=cmpfun(f), chsize=n*numdummies, popsize=popsize)
-	best<-cga_generate_chromosome(ga)
-
+	ga<-cga(evalFunc=f, chsize=n*numdummies, popsize=popsize)
+	#best<-cga_generate_chromosome(ga)
+    best <- as.integer(ga)
 	if(is.null(otherx)){
 		ols.dirty <- lm(y~dirtyx)
 	}else{
