@@ -1,6 +1,3 @@
-require("compiler")
-
-
 # Generates one or two exploratory variables linear model
 # with first one is subject to error
 generate.eive.data <- function (n, e.sd, delta.sd, seed = 12345, useotherx = FALSE){
@@ -26,7 +23,6 @@ generate.eive.data <- function (n, e.sd, delta.sd, seed = 12345, useotherx = FAL
 
 
 eive.cga <- function(dirtyx, otherx=NULL, y, numdummies=10, popsize=20){
-
 	ols.dirty <- NULL
 	ols.proxy <- NULL
 	ols.best <- NULL
@@ -34,12 +30,12 @@ eive.cga <- function(dirtyx, otherx=NULL, y, numdummies=10, popsize=20){
 	f<-function(d){
 		ols <- NULL
         m<-matrix(d,nrow=n)
-	    ols.proxy <- lm(dirtyx ~ m)
+	    ols.proxy <- lm.fit(cbind(1,m), dirtyx)
 	    x.proxy <- ols.proxy$fitted.values
 		if(is.null(otherx)){
-	    	ols <- lm(y ~ x.proxy)
+	    	ols <- lm.fit(cbind(1, x.proxy), y)
 		}else{
-			ols <- lm(y ~ x.proxy + otherx)
+			ols <- lm.fit(cbind(1, x.proxy , otherx), y)
 		}
         return (sum (ols$residuals^2))
 	}
