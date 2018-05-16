@@ -1,16 +1,16 @@
 Package: eive
 Type: Package
-Title: An algorithm for reducing errors-in-variable bias in simple
-        linear regression
-Version: 2.1
-Date: 2014-07-01
+Title: An Algorithm for Reducing Errors-in-Variable Bias in Simple
+        Linear Regression
+Version: 2.3
+Date: 2018-04-16
 Author: Mehmet Hakan Satman (PhD), Erkin Diyarbakirlioglu (PhD)
 Maintainer: Mehmet Hakan Satman <mhsatman@istanbul.edu.tr>
-Description: EIVE performs a compact genetic algorithm search to reduce errors-in-variables bias in linear regression.
+Description: Performs a compact genetic algorithm search to reduce errors-in-variables bias in linear regression. The algorithm estimates the regression parameters with lower biases and higher variances but mean-square errors (MSEs) are reduced.  
 License: GPL
 Imports: Rcpp (>= 0.11.1)
 LinkingTo: Rcpp
-Packaged: 2014-07-04 09:26:56 UTC; oem
+Packaged: 2018-05-16 19:05:15 UTC; istar1
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2014-07-05 16:53:55
+Date/Publication: 2018-05-16 21:38:11 UTC
