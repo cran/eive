@@ -1,6 +1,19 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
+//' @name cga_generate_chromosome
+//' @title Generate Chromosome
+//' @description Generate a binary vector using a probability vector
+//' 	This function is not directly called by user. CGAs (Compact genetic algorithms)
+//' 	sample chromosomes using this probability vector. A probability vector
+//' 	contains[P1, P2, ..., PN] and the function generates and returns a chromosome[B1, B2, ..., BN].
+//' 	The probability of BK having the value of 1 is PK. So, it has more chance to have
+//' 	[1, 1, 1, 0, 0] rather than [0, 0, 0, 1, 1] when the probability vector is
+//'  	[0.9, 0.9, 0.9, 0.1, 0.1]. 
+//' @param prob_vec Vector of probabilities
+//' @param vect Vector of bits.
+//' @return Mutates the vect. Returns null.
+//' @export
 // [[Rcpp::export]]
 void cga_generate_chromosome(NumericVector prob_vec, NumericVector vect)
 {
@@ -18,6 +31,17 @@ void cga_generate_chromosome(NumericVector prob_vec, NumericVector vect)
 	}
 }
 
+//' @name cga
+//' @title Compact Genetic Algorithm
+//' @description Performs a Compact Genetic Algorithm (CGA) search
+//' 	for a given chromosome size, population size (mutation rate), 
+//'     and an objective function. 
+//' @param chsize Number of bits.
+//' @param popsize Size of population. The value is used for mutating 
+//'		the probability vector by 1/popsize. 
+//' @param evalFunc Objective function.
+//' @return Binary vector of size chsize.
+//' @export
 // [[Rcpp::export]]
 NumericVector cga(int chsize, int popsize, Function evalFunc)
 {
@@ -27,6 +51,7 @@ NumericVector cga(int chsize, int popsize, Function evalFunc)
 	NumericVector winner, loser;
 	NumericVector cost1, cost2;
 	int i, t;
+	double mutation = 1.0 / (double)popsize;
 	while (1)
 	{
 		cga_generate_chromosome(prob_vec, chromosome1);
@@ -47,11 +72,11 @@ NumericVector cga(int chsize, int popsize, Function evalFunc)
 			{
 				if (winner[i] == 1)
 				{
-					prob_vec[i] = prob_vec[i] + (1.0 / popsize);
+					prob_vec[i] = prob_vec[i] + mutation;
 				}
 				else
 				{
-					prob_vec[i] = prob_vec[i] - (1.0 / popsize);
+					prob_vec[i] = prob_vec[i] - mutation;
 				}
 			}
 		}
