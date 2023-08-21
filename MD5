@@ -1,4 +1,4 @@
-8bc3d5026c4df66fa3620bba3ffcf2e1 *DESCRIPTION
+bf92b3a82e90968e5131f2c052120e6d *DESCRIPTION
 1401f2773b2879ab789a5998e401623e *NAMESPACE
 382996479307bbe09d12c45735682bca *R/RcppExports.R
 e958041aa8a45921cc9e2e3e83f46137 *R/eive.R
@@ -7,7 +7,7 @@ abceba2ae1963ed95a7e39e752ca04c4 *R/eivem.R
 120d668ff37b6d939b373988eead3d69 *inst/CITATION
 e1977694a91e100150f8b54594a80fa4 *man/cga.Rd
 9c151d2f9cb60a441dd483246a9c47d0 *man/cga_generate_chromosome.Rd
-e478357d6117bd6c934d108e46712aac *man/eive-package.Rd
+7c8e7527f5e539c017779dd226e8a2f7 *man/eive-package.Rd
 87b6a1896d6566df010f249d96756409 *man/eive.cga.Rd
 a9dec24c4b4ec2c51ce650a4cc7679d4 *man/eive.cga.formula.Rd
 5b2548cf36aa5278102b4ef9fd5bffde *man/eivem.Rd
